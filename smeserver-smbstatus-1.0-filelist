@@ -1,0 +1,16 @@
+%dir %attr(0755,root,root) /etc/e-smith
+%dir %attr(0755,root,root) /etc/e-smith/locale
+%dir %attr(0755,root,root) /etc/e-smith/locale/fr
+%dir %attr(0755,root,root) /etc/e-smith/locale/fr/etc
+%dir %attr(0755,root,root) /etc/e-smith/locale/fr/etc/e-smith
+%dir %attr(0755,root,root) /etc/e-smith/locale/fr/etc/e-smith/web
+%dir %attr(0755,root,root) /etc/e-smith/locale/fr/etc/e-smith/web/functions
+/etc/e-smith/locale/fr/etc/e-smith/web/functions/smbstatus
+%dir %attr(0755,root,root) /etc/e-smith/web
+%dir %attr(0550,root,admin) /etc/e-smith/web/panels
+%dir %attr(0755,root,root) /etc/e-smith/web/panels/manager
+%dir %attr(0755,root,root) /etc/e-smith/web/panels/manager/cgi-bin
+/etc/e-smith/web/panels/manager/cgi-bin/smbstatus
+%dir %attr(0550,root,admin) /etc/e-smith/web/functions
+%attr(04750,root,admin) /etc/e-smith/web/functions/smbstatus
+%doc COPYING

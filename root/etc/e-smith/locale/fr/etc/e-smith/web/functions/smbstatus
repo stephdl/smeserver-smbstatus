@@ -1,0 +1,12 @@
+<lexicon lang="fr">
+
+    <entry>
+        <base>Administration</base>
+        <trans>Administration</trans>
+    </entry>
+    <entry>
+        <base>Samba Status</base>
+        <trans>Statut de Samba</trans>
+    </entry>
+
+</lexicon>

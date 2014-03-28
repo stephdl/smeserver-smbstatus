@@ -1,0 +1,59 @@
+#!/usr/bin/perl -U
+
+#----------------------------------------------------------------------
+# heading     : Administration
+# description : Samba Status
+# navigation  : 3100 3200
+#
+# Authors: Van hees Michel
+#----------------------------------------------------------------------
+
+package esmith;
+
+use strict;
+use CGI ':all';
+use CGI::Carp qw(fatalsToBrowser);
+
+use esmith::cgi;
+use esmith::config;
+use esmith::util;
+use esmith::db;
+
+BEGIN
+{
+    # Clear PATH and related environment variables so that calls to
+    # external programs do not cause results to be tainted. See
+    # "perlsec" manual page for details.
+
+    $ENV {'PATH'} = '';
+    $ENV {'SHELL'} = '/bin/bash';
+    delete $ENV {'ENV'};
+}
+
+esmith::util::setRealToEffective ();
+
+$CGI::POST_MAX=1024 * 100;  # max 100K posts
+$CGI::DISABLE_UPLOADS = 1;  # no uploads
+
+my $q = new CGI;
+
+my $q = new CGI;
+$q->default_dtd('-//W3C//DTD XHTML 1.0 Transitional//EN');
+print $q->header ('text/html');
+          print $q->start_html (
+          -TITLE => "smbstatus",
+          -CLASS => "main",
+          -STYLE => {
+          -verbatim => '@import url("/server-common/css/sme_main.css");',
+          src => '/server-common/css/sme_core.css'});
+				       
+print $q->h1 ("smbstatus"); 
+
+my @ss = `/usr/bin/smbstatus`;
+foreach my $tt (@ss)
+{
+  print $q->p($tt);
+}
+
+esmith::cgi::genFooter ($q);
+exit (0);
